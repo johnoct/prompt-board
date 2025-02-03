@@ -104,8 +104,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // Copy functionality
   copyButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const promptText = button.parentElement.querySelector('[data-prompt]').dataset.prompt;
-      navigator.clipboard.writeText(promptText).then(() => {
+      const card = button.closest('.prompt-card');
+      const promptTemplate = card.querySelector('.prompt-template').dataset.prompt;
+      const topicInput = card.querySelector('.topic-input');
+      const topic = topicInput.value.trim();
+
+      // Replace [concept], [topic], [skill/concept], etc. with the user's input
+      const finalPrompt = promptTemplate.replace(/\[(.*?)\]/g, topic || '$1');
+
+      navigator.clipboard.writeText(finalPrompt).then(() => {
         // Show toast
         toast.classList.add('show');
         // Hide toast after 2 seconds
@@ -113,6 +120,17 @@ document.addEventListener('DOMContentLoaded', function () {
           toast.classList.remove('show');
         }, 2000);
       });
+    });
+  });
+
+  // Optional: Auto-copy when pressing Enter in topic input
+  document.querySelectorAll('.topic-input').forEach(input => {
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const card = input.closest('.prompt-card');
+        const copyBtn = card.querySelector('.copy-btn');
+        copyBtn.click();
+      }
     });
   });
 });

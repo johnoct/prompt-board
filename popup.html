@@ -42,15 +42,116 @@
           <div class="prompt-card" data-category="basic">
             <div class="prompt-content">
               <h3>Progressive Understanding</h3>
-              <p data-prompt="Explain [concept] in simple terms, then progressively increase complexity">
+              <p class="prompt-template"
+                data-prompt="Explain [concept] in simple terms, then progressively increase complexity">
                 Explain concept with increasing complexity
               </p>
+              <div class="topic-input-container">
+                <input type="text" class="topic-input" placeholder="Enter topic...">
+              </div>
+            </div>
+            <button class="copy-btn" aria-label="Copy prompt">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </div>
+          <div class="prompt-card" data-category="basic">
+            <div class="prompt-content">
+              <h3>Core Principles Analysis</h3>
+              <p class="prompt-template"
+                data-prompt="Using the Pareto Principle and first principles thinking: 1) What are the fundamental building blocks of [concept]? 2) Which 20% of these principles drive 80% of the results? 3) How do these core elements combine to create more complex applications?">
+                Break down concept into essential principles and key drivers
+              </p>
+              <div class="topic-input-container">
+                <input type="text" class="topic-input" placeholder="Enter topic...">
+              </div>
             </div>
             <button class="copy-btn" aria-label="Copy prompt">
               <i class="material-icons">content_copy</i>
             </button>
           </div>
           <!-- Add more basic cards here -->
+        </div>
+      </div>
+
+      <!-- Also add this card to create a new 80/20 Rule section -->
+      <div class="category-section" data-section="basic">
+        <h2>
+          <i class="material-icons">analytics</i>
+          80/20 Rule
+        </h2>
+        <div class="prompt-grid">
+          <div class="prompt-card" data-category="basic">
+            <div class="prompt-content">
+              <h3>Pareto Learning Focus</h3>
+              <p class="prompt-template"
+                data-prompt="What are the 20% most important concepts in [concept] that will give me 80% of the practical understanding? Focus on core principles and their direct applications.">
+                Identify the vital few concepts that matter most
+              </p>
+              <div class="topic-input-container">
+                <input type="text" class="topic-input" placeholder="Enter topic...">
+              </div>
+            </div>
+            <button class="copy-btn" aria-label="Copy prompt">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add this new section after the 80/20 Rule section and before the Apply section -->
+      <div class="category-section" data-section="basic">
+        <h2>
+          <i class="material-icons">hub</i>
+          Mind Mapping
+        </h2>
+        <div class="prompt-grid">
+          <div class="prompt-card" data-category="basic">
+            <div class="prompt-content">
+              <h3>Connection Builder</h3>
+              <p class="prompt-template"
+                data-prompt="Help me create a comprehensive mind map for [concept] by: 1) Identifying core concepts and principles 2) Mapping relationships and dependencies between ideas 3) Finding connections to related fields 4) Highlighting practical applications 5) Noting potential areas of exploration">
+                Build a detailed mental model with connections
+              </p>
+              <div class="topic-input-container">
+                <input type="text" class="topic-input" placeholder="Enter topic...">
+              </div>
+            </div>
+            <button class="copy-btn" aria-label="Copy prompt">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </div>
+
+          <div class="prompt-card" data-category="basic">
+            <div class="prompt-content">
+              <h3>Cross-Domain Connections</h3>
+              <p class="prompt-template"
+                data-prompt="Help me understand [concept] by finding analogies and connections to: 1) Natural phenomena 2) Other scientific fields 3) Everyday experiences 4) Historical events. For each connection, explain how it helps build intuition about the concept.">
+                Find analogies and cross-domain relationships
+              </p>
+              <div class="topic-input-container">
+                <input type="text" class="topic-input" placeholder="Enter topic...">
+              </div>
+            </div>
+            <button class="copy-btn" aria-label="Copy prompt">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </div>
+
+          <div class="prompt-card" data-category="basic">
+            <div class="prompt-content">
+              <h3>Mental Model Integration</h3>
+              <p class="prompt-template"
+                data-prompt="For [concept], help me: 1) Identify relevant mental models that apply 2) Explain how each model provides unique insights 3) Show how these models interact and complement each other 4) Create a unified framework for understanding the concept">
+                Combine mental models for deeper understanding
+              </p>
+              <div class="topic-input-container">
+                <input type="text" class="topic-input" placeholder="Enter topic...">
+              </div>
+            </div>
+            <button class="copy-btn" aria-label="Copy prompt">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </div>
         </div>
       </div>
 
