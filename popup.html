@@ -6,136 +6,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Prompt Copier</title>
   <link rel="stylesheet" href="popup.css">
+  <!-- Add Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
-    <h1>AI Prompts</h1>
-    <ul id="prompt-list">
-      <!-- Understanding Concepts -->
-      <li class="prompt-item" data-prompt="Explain [concept] in simple terms, then progressively increase complexity">
-        Basic: Progressive Understanding
-      </li>
-      <li class="prompt-item"
-        data-prompt="What are the key components of [concept] and how do they relate to each other?">
-        Basic: Key Components
-      </li>
-      <li class="prompt-item" data-prompt="Compare and contrast [concept A] with [concept B]">
-        Basic: Compare Concepts
-      </li>
-      <li class="prompt-item" data-prompt="Give me a real-world example of [concept] in action">
-        Apply: Real World Example
-      </li>
-      <li class="prompt-item" data-prompt="What are the potential problems or limitations of [concept]?">
-        Apply: Limitations
-      </li>
-      <li class="prompt-item" data-prompt="How would you apply [concept] to solve [specific problem]?">
-        Apply: Problem Solving
-      </li>
-      <li class="prompt-item" data-prompt="What are the strengths and weaknesses of [approach/solution]?">
-        Evaluate: Strengths/Weaknesses
-      </li>
-      <li class="prompt-item" data-prompt="How could [concept] be improved or modified?">
-        Evaluate: Improvements
-      </li>
-      <li class="prompt-item" data-prompt="Design a new solution that combines elements of [concept A] and [concept B]">
-        Create: Combined Solution
-      </li>
+    <!-- Header with Search -->
+    <header>
+      <h1>Learning Prompts</h1>
+      <div class="search-container">
+        <i class="material-icons search-icon">search</i>
+        <input type="text" id="search-input" placeholder="Search prompts...">
+      </div>
+    </header>
 
-      <!-- Pareto Principle -->
-      <li class="prompt-item"
-        data-prompt="What are the 20% most important concepts in [topic] that will give me 80% of the understanding?">
-        80/20: Core Concepts
-      </li>
-      <li class="prompt-item"
-        data-prompt="Identify the vital few principles in [subject] that drive most of the results">
-        80/20: Key Principles
-      </li>
-      <li class="prompt-item" data-prompt="What are the fundamental building blocks I need to master first in [topic]?">
-        80/20: Fundamentals
-      </li>
+    <!-- Category Filter Tabs -->
+    <div class="category-tabs">
+      <button class="tab active" data-category="all">All</button>
+      <button class="tab" data-category="basic">Basic</button>
+      <button class="tab" data-category="apply">Apply</button>
+      <button class="tab" data-category="evaluate">Evaluate</button>
+      <button class="tab" data-category="project">Project</button>
+    </div>
 
-      <!-- SOLO Taxonomy -->
-      <li class="prompt-item"
-        data-prompt="Explain [concept] at different levels of understanding, from basic facts to complex relationships">
-        SOLO: Multi-level Understanding
-      </li>
-      <li class="prompt-item" data-prompt="How does [concept] connect to other ideas in [broader field]?">
-        SOLO: Broader Connections
-      </li>
-      <li class="prompt-item" data-prompt="What are the underlying patterns and principles in [topic]?">
-        SOLO: Pattern Recognition
-      </li>
+    <!-- Main Content -->
+    <div class="prompts-container">
+      <!-- Understanding Concepts Section -->
+      <div class="category-section" data-section="basic">
+        <h2>
+          <i class="material-icons">school</i>
+          Understanding Concepts
+        </h2>
+        <div class="prompt-grid">
+          <div class="prompt-card" data-category="basic">
+            <div class="prompt-content">
+              <h3>Progressive Understanding</h3>
+              <p data-prompt="Explain [concept] in simple terms, then progressively increase complexity">
+                Explain concept with increasing complexity
+              </p>
+            </div>
+            <button class="copy-btn" aria-label="Copy prompt">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </div>
+          <!-- Add more basic cards here -->
+        </div>
+      </div>
 
-      <!-- Mind Mapping -->
-      <li class="prompt-item" data-prompt="Create a concept map showing how [topic] relates to [other topics]">
-        Map: Concept Relations
-      </li>
-      <li class="prompt-item" data-prompt="What are the unexpected connections between [concept A] and [concept B]?">
-        Map: Hidden Connections
-      </li>
-      <li class="prompt-item"
-        data-prompt="Help me build a mental model of [topic] by connecting it to things I already know">
-        Map: Mental Model
-      </li>
+      <!-- Apply Section -->
+      <div class="category-section" data-section="apply">
+        <h2>
+          <i class="material-icons">psychology</i>
+          Apply & Analyze
+        </h2>
+        <div class="prompt-grid">
+          <div class="prompt-card" data-category="apply">
+            <div class="prompt-content">
+              <h3>Real World Application</h3>
+              <p data-prompt="Give me a real-world example of [concept] in action">
+                Apply concept to real situations
+              </p>
+            </div>
+            <button class="copy-btn" aria-label="Copy prompt">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </div>
+          <!-- Add more apply cards here -->
+        </div>
+      </div>
 
-      <!-- Active Recall -->
-      <li class="prompt-item" data-prompt="Without referring to notes, what are the key points of [topic]?">
-        Recall: Key Points
-      </li>
-      <li class="prompt-item" data-prompt="Generate practice questions about [concept]">
-        Recall: Practice Questions
-      </li>
-      <li class="prompt-item" data-prompt="Explain [concept] as if teaching it to someone else">
-        Recall: Teach Others
-      </li>
+      <!-- Evaluate Section -->
+      <div class="category-section" data-section="evaluate">
+        <h2>
+          <i class="material-icons">analytics</i>
+          Evaluate & Create
+        </h2>
+        <div class="prompt-grid">
+          <div class="prompt-card" data-category="evaluate">
+            <div class="prompt-content">
+              <h3>Critical Analysis</h3>
+              <p data-prompt="What are the strengths and weaknesses of [approach/solution]?">
+                Evaluate approaches and solutions
+              </p>
+            </div>
+            <button class="copy-btn" aria-label="Copy prompt">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </div>
+          <!-- Add more evaluate cards here -->
+        </div>
+      </div>
 
-      <!-- Spaced Repetition -->
-      <li class="prompt-item" data-prompt="Create a review schedule for [topic] using spaced repetition principles">
-        Spaced: Review Schedule
-      </li>
-      <li class="prompt-item" data-prompt="What aspects of [topic] should I review daily/weekly/monthly?">
-        Spaced: Review Intervals
-      </li>
-      <li class="prompt-item" data-prompt="Generate incremental challenges that build upon [concept]">
-        Spaced: Progressive Challenges
-      </li>
+      <!-- Project Section -->
+      <div class="category-section" data-section="project">
+        <h2>
+          <i class="material-icons">build</i>
+          Project-Based Learning
+        </h2>
+        <div class="prompt-grid">
+          <div class="prompt-card" data-category="project">
+            <div class="prompt-content">
+              <h3>Practice Project</h3>
+              <p data-prompt="Design a small project that would help me practice [skill/concept]">
+                Create hands-on learning projects
+              </p>
+            </div>
+            <button class="copy-btn" aria-label="Copy prompt">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </div>
+          <!-- Add more project cards here -->
+        </div>
+      </div>
+    </div>
 
-      <!-- Metacognition -->
-      <li class="prompt-item" data-prompt="Help me reflect on my understanding of [topic]">
-        Meta: Self-Reflection
-      </li>
-      <li class="prompt-item" data-prompt="What questions should I be asking about [concept]?">
-        Meta: Key Questions
-      </li>
-      <li class="prompt-item" data-prompt="How can I test whether I truly understand [topic]?">
-        Meta: Understanding Check
-      </li>
-
-      <!-- Project-Based Learning -->
-      <li class="prompt-item" data-prompt="Design a small project that would help me practice [skill/concept]">
-        Project: Practice Design
-      </li>
-      <li class="prompt-item" data-prompt="Break down [complex topic] into manageable learning projects">
-        Project: Topic Breakdown
-      </li>
-      <li class="prompt-item" data-prompt="Create a learning roadmap for mastering [topic]">
-        Project: Learning Roadmap
-      </li>
-
-      <!-- Feedback Loops -->
-      <li class="prompt-item" data-prompt="What metrics can I use to measure my understanding of [topic]?">
-        Feedback: Metrics
-      </li>
-      <li class="prompt-item" data-prompt="How can I test my knowledge of [concept] in practical situations?">
-        Feedback: Practical Tests
-      </li>
-      <li class="prompt-item" data-prompt="Design experiments to validate my understanding of [topic]">
-        Feedback: Validation
-      </li>
-    </ul>
-    <!-- This div will display a temporary message after a prompt is copied -->
-    <div id="feedback" role="alert" aria-live="assertive"></div>
+    <!-- Feedback Toast -->
+    <div id="feedback" class="toast" role="alert" aria-live="assertive">
+      <i class="material-icons">check_circle</i>
+      <span>Prompt copied to clipboard!</span>
+    </div>
   </div>
   <script src="popup.js"></script>
 </body>

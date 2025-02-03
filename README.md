@@ -2,6 +2,7 @@
 
 A Chrome extension that provides quick access to commonly used AI prompts. With a simple click, you can copy pre-defined prompts to your clipboard, making it easier to interact with AI systems.
 
+
 ## Features
 
 - 🚀 Quick access to pre-defined AI prompts

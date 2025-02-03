@@ -27,3 +27,92 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Get all the necessary elements
+  const searchInput = document.getElementById('search-input');
+  const categoryTabs = document.querySelectorAll('.tab');
+  const promptCards = document.querySelectorAll('.prompt-card');
+  const categorySections = document.querySelectorAll('.category-section');
+  const copyButtons = document.querySelectorAll('.copy-btn');
+  const toast = document.getElementById('feedback');
+
+  // Filter functionality
+  function filterPrompts(category) {
+    // Show all sections first
+    categorySections.forEach(section => section.style.display = 'block');
+
+    if (category === 'all') {
+      promptCards.forEach(card => card.style.display = 'flex');
+    } else {
+      promptCards.forEach(card => {
+        if (card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Hide empty sections
+      categorySections.forEach(section => {
+        const visibleCards = section.querySelectorAll('.prompt-card[style="display: flex;"]');
+        if (visibleCards.length === 0) {
+          section.style.display = 'none';
+        }
+      });
+    }
+  }
+
+  // Tab click handlers
+  categoryTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active class from all tabs
+      categoryTabs.forEach(t => t.classList.remove('active'));
+      // Add active class to clicked tab
+      tab.classList.add('active');
+      // Filter prompts based on category
+      filterPrompts(tab.dataset.category);
+    });
+  });
+
+  // Search functionality
+  searchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+
+    promptCards.forEach(card => {
+      const promptText = card.querySelector('p').textContent.toLowerCase();
+      const titleText = card.querySelector('h3').textContent.toLowerCase();
+
+      if (promptText.includes(searchTerm) || titleText.includes(searchTerm)) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Hide empty sections
+    categorySections.forEach(section => {
+      const visibleCards = section.querySelectorAll('.prompt-card[style="display: flex;"]');
+      if (visibleCards.length === 0) {
+        section.style.display = 'none';
+      } else {
+        section.style.display = 'block';
+      }
+    });
+  });
+
+  // Copy functionality
+  copyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const promptText = button.parentElement.querySelector('[data-prompt]').dataset.prompt;
+      navigator.clipboard.writeText(promptText).then(() => {
+        // Show toast
+        toast.classList.add('show');
+        // Hide toast after 2 seconds
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2000);
+      });
+    });
+  });
+});
