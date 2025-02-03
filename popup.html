@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Prompt Copier</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Prompts</h1>
+    <ul id="prompt-list">
+      <!-- Each list item holds a prompt text in a data attribute. -->
+      <li class="prompt-item" data-prompt="Write a creative story about a future where AI and humans coexist.">
+        Story: AI &amp; Humans
+      </li>
+      <li class="prompt-item" data-prompt="Generate a Python script that demonstrates the basics of web scraping.">
+        Python Web Scraping
+      </li>
+      <li class="prompt-item" data-prompt="List five innovative business ideas using artificial intelligence.">
+        Innovative AI Business Ideas
+      </li>
+      <li class="prompt-item" data-prompt="Explain the concept of machine learning in simple terms.">
+        Simple Machine Learning Explanation
+      </li>
+    </ul>
+    <!-- This div will display a temporary message after a prompt is copied -->
+    <div id="feedback" role="alert" aria-live="assertive"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
