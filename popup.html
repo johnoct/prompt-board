@@ -1,27 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Prompt Copier</title>
   <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
   <div class="container">
     <h1>AI Prompts</h1>
     <ul id="prompt-list">
-      <!-- Each list item holds a prompt text in a data attribute. -->
-      <li class="prompt-item" data-prompt="Write a creative story about a future where AI and humans coexist.">
-        Story: AI &amp; Humans
+      <!-- Understanding Concepts -->
+      <li class="prompt-item" data-prompt="Explain [concept] in simple terms, then progressively increase complexity">
+        Basic: Progressive Understanding
       </li>
-      <li class="prompt-item" data-prompt="Generate a Python script that demonstrates the basics of web scraping.">
-        Python Web Scraping
+      <li class="prompt-item"
+        data-prompt="What are the key components of [concept] and how do they relate to each other?">
+        Basic: Key Components
       </li>
-      <li class="prompt-item" data-prompt="List five innovative business ideas using artificial intelligence.">
-        Innovative AI Business Ideas
+      <li class="prompt-item" data-prompt="Compare and contrast [concept A] with [concept B]">
+        Basic: Compare Concepts
       </li>
-      <li class="prompt-item" data-prompt="Explain the concept of machine learning in simple terms.">
-        Simple Machine Learning Explanation
+      <li class="prompt-item" data-prompt="Give me a real-world example of [concept] in action">
+        Apply: Real World Example
+      </li>
+      <li class="prompt-item" data-prompt="What are the potential problems or limitations of [concept]?">
+        Apply: Limitations
+      </li>
+      <li class="prompt-item" data-prompt="How would you apply [concept] to solve [specific problem]?">
+        Apply: Problem Solving
+      </li>
+      <li class="prompt-item" data-prompt="What are the strengths and weaknesses of [approach/solution]?">
+        Evaluate: Strengths/Weaknesses
+      </li>
+      <li class="prompt-item" data-prompt="How could [concept] be improved or modified?">
+        Evaluate: Improvements
+      </li>
+      <li class="prompt-item" data-prompt="Design a new solution that combines elements of [concept A] and [concept B]">
+        Create: Combined Solution
+      </li>
+
+      <!-- Pareto Principle -->
+      <li class="prompt-item"
+        data-prompt="What are the 20% most important concepts in [topic] that will give me 80% of the understanding?">
+        80/20: Core Concepts
+      </li>
+      <li class="prompt-item"
+        data-prompt="Identify the vital few principles in [subject] that drive most of the results">
+        80/20: Key Principles
+      </li>
+      <li class="prompt-item" data-prompt="What are the fundamental building blocks I need to master first in [topic]?">
+        80/20: Fundamentals
+      </li>
+
+      <!-- SOLO Taxonomy -->
+      <li class="prompt-item"
+        data-prompt="Explain [concept] at different levels of understanding, from basic facts to complex relationships">
+        SOLO: Multi-level Understanding
+      </li>
+      <li class="prompt-item" data-prompt="How does [concept] connect to other ideas in [broader field]?">
+        SOLO: Broader Connections
+      </li>
+      <li class="prompt-item" data-prompt="What are the underlying patterns and principles in [topic]?">
+        SOLO: Pattern Recognition
+      </li>
+
+      <!-- Mind Mapping -->
+      <li class="prompt-item" data-prompt="Create a concept map showing how [topic] relates to [other topics]">
+        Map: Concept Relations
+      </li>
+      <li class="prompt-item" data-prompt="What are the unexpected connections between [concept A] and [concept B]?">
+        Map: Hidden Connections
+      </li>
+      <li class="prompt-item"
+        data-prompt="Help me build a mental model of [topic] by connecting it to things I already know">
+        Map: Mental Model
+      </li>
+
+      <!-- Active Recall -->
+      <li class="prompt-item" data-prompt="Without referring to notes, what are the key points of [topic]?">
+        Recall: Key Points
+      </li>
+      <li class="prompt-item" data-prompt="Generate practice questions about [concept]">
+        Recall: Practice Questions
+      </li>
+      <li class="prompt-item" data-prompt="Explain [concept] as if teaching it to someone else">
+        Recall: Teach Others
+      </li>
+
+      <!-- Spaced Repetition -->
+      <li class="prompt-item" data-prompt="Create a review schedule for [topic] using spaced repetition principles">
+        Spaced: Review Schedule
+      </li>
+      <li class="prompt-item" data-prompt="What aspects of [topic] should I review daily/weekly/monthly?">
+        Spaced: Review Intervals
+      </li>
+      <li class="prompt-item" data-prompt="Generate incremental challenges that build upon [concept]">
+        Spaced: Progressive Challenges
+      </li>
+
+      <!-- Metacognition -->
+      <li class="prompt-item" data-prompt="Help me reflect on my understanding of [topic]">
+        Meta: Self-Reflection
+      </li>
+      <li class="prompt-item" data-prompt="What questions should I be asking about [concept]?">
+        Meta: Key Questions
+      </li>
+      <li class="prompt-item" data-prompt="How can I test whether I truly understand [topic]?">
+        Meta: Understanding Check
+      </li>
+
+      <!-- Project-Based Learning -->
+      <li class="prompt-item" data-prompt="Design a small project that would help me practice [skill/concept]">
+        Project: Practice Design
+      </li>
+      <li class="prompt-item" data-prompt="Break down [complex topic] into manageable learning projects">
+        Project: Topic Breakdown
+      </li>
+      <li class="prompt-item" data-prompt="Create a learning roadmap for mastering [topic]">
+        Project: Learning Roadmap
+      </li>
+
+      <!-- Feedback Loops -->
+      <li class="prompt-item" data-prompt="What metrics can I use to measure my understanding of [topic]?">
+        Feedback: Metrics
+      </li>
+      <li class="prompt-item" data-prompt="How can I test my knowledge of [concept] in practical situations?">
+        Feedback: Practical Tests
+      </li>
+      <li class="prompt-item" data-prompt="Design experiments to validate my understanding of [topic]">
+        Feedback: Validation
       </li>
     </ul>
     <!-- This div will display a temporary message after a prompt is copied -->
@@ -29,4 +139,5 @@
   </div>
   <script src="popup.js"></script>
 </body>
+
 </html>
